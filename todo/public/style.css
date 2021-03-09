@@ -38,6 +38,9 @@ h1{
 .list li{
     list-style: none;
 }
+form + ul{
+    padding: 1rem .2rem;
+}
 .item{
     display: block;
     padding: 1rem;

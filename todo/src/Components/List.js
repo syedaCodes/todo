@@ -23,6 +23,7 @@ class List extends React.Component {
             return {
                 data,
                 inputState: '',
+                addClicked: true,
             };
         });
         console.log(this.state.data);
@@ -50,7 +51,9 @@ class List extends React.Component {
                         <svg className="saveBtn"><use xlinkHref={`${Icons}#icon-check`}></use></svg>
                     </button>
                 </form>}
-                {(this.state.data).length > 0 ? (this.state.data).map(item => <li className="item" key={item}>{item}</li>): null}
+                <ul>
+                    {(this.state.data).length > 0 ? (this.state.data).map((item, index) => <li className="item" key={index}>{item}</li>): null}
+                </ul>
             </div>
         );
     }
