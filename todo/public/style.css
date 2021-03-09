@@ -39,6 +39,7 @@ h1{
     list-style: none;
 }
 .item{
+    display: block;
     padding: 1rem;
     background-color: #333333;
     margin: .7rem 0;
