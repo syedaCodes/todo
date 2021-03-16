@@ -1,5 +1,6 @@
 import React from 'react';
 import Icons from '../assets/sprite.svg';
+import Li from './Li';
 
 class List extends React.Component {
 
@@ -10,29 +11,37 @@ class List extends React.Component {
             inputState: '',
             data: []
         }; 
-
         this.onInputChange = this.onInputChange.bind(this);
+        this.handleDeletion = this.handleDeletion.bind(this);
     }
 
     onInputChange(event){
         event.preventDefault();
-       // const text = this.state.inputState;
-        //console.log(text);
+        
+        if(this.state.inputState){
+            this.setState(state => {
+                const data = state.data.concat(this.state.inputState);
+                return {
+                    data,
+                    inputState: '',
+                    addClicked: true,
+                };
+            });
+        }
+        else{
+            alert("Please enter a valid value.");
+        }
+    }
+
+    handleDeletion(e){
+        e.preventDefault();
         this.setState(state => {
-            const data = state.data.concat(this.state.inputState);
-            return {
-                data,
-                inputState: '',
-                addClicked: true,
+            return{
+                data: []
             };
-        });
-        console.log(this.state.data);
+        })
+        console.log((this.props.data));
     }
-
-    handleOnChange(event){
-        event.preventDefault();
-    }
-
 
     render(){
 
@@ -45,15 +54,13 @@ class List extends React.Component {
                 }}>
                     <svg className="plusBtn"><use xlinkHref={`${Icons}#icon-plus`}></use></svg>
                 </button> :
-                <form className="replaceDiv" onSubmit={e => this.handleOnChange(e)}>
+                <form className="replaceDiv" onSubmit={e => this.onInputChange(e)}>
                     <input type="text" className="toDoField" autoComplete="off" name="item" value={this.state.inputState} onChange={(e) => this.setState({inputState: e.target.value})}/>
-                    <button className="checkDiv" onClick={this.onInputChange}>
+                    <button className="checkDiv">
                         <svg className="saveBtn"><use xlinkHref={`${Icons}#icon-check`}></use></svg>
                     </button>
                 </form>}
-                <ul>
-                    {(this.state.data).length > 0 ? (this.state.data).map((item, index) => <li className="item" key={index}>{item}</li>): null}
-                </ul>
+                {(this.state.data)? <Li data={this.state.data} handleDeletion={this.handleDeletion}></Li>: null}
             </div>
         );
     }

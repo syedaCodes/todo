@@ -13,5 +13,3 @@ const ToDo = () => {
 }
 
 export default ToDo;
-
-//////////// clicked={this.state.addClicked} inputContent={this.state.inputState}

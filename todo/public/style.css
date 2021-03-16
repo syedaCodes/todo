@@ -38,9 +38,6 @@ h1{
 .list li{
     list-style: none;
 }
-form + ul{
-    padding: 1rem .2rem;
-}
 .item{
     display: block;
     padding: 1rem;
@@ -48,32 +45,35 @@ form + ul{
     margin: .7rem 0;
     border-radius: 5px;
 }
-.checkInput, .itemContent, .itemSvg, .plusBtn{
+.item p{
+    display: inline-block;
+    
+}
+.item p:not(:first-child){
+    text-align: right;
+}
+.checkInput, .itemContent, .del, .checkDone, .plusBtn{
     vertical-align: middle;
 }
 .checkInput, .itemDelete, .plusDiv, .checkDiv{
     cursor: pointer;
 }
 .itemContent{
-    margin: 0 1.5rem;
-    display: inline-block;
-    width: 90%;
+    width: 85%;
+    text-align: justify;
+    padding: 1rem;
 }
-.itemSvg{
+.checkDone{
     width: 2rem;
     height: 2rem;
-}
-.itemDelete{
-    text-align: right;
-}
-.itemDone{
-    display: none;
-}
-.done{
-    fill: #33a816;
+    margin: 0 1rem;
+    cursor: pointer;
 }
 .del{
+    width: 2rem;
+    height: 2rem;
     fill: #e24a4a;
+    margin: 0 .2rem;
 }
 /* Plus button*/
 .plusDiv, .checkDiv{

@@ -1,17 +1,18 @@
 import React from 'react';
 import Icons from '../assets/sprite.svg';
 
-const Li = (props) => {
-    
-   return{
-       render(){
-        /*<li className="item" id=""><input type="checkbox" className="checkInput" />
-        <a href='/' className="itemDone"><svg className="itemSvg done"><use xlinkHref={`${Icons}#icon-check`}></use></svg></a>
-        <a href='/' className="itemContent">${props.itemContent}</a>
-        <a href='/' className="itemDelete"><svg className="itemSvg del"><use xlinkHref={`${Icons}#icon-trash-o`}></use></svg></a>
-        </li>*/
-       }
-   }
+class Li extends React.Component {
+
+   render(){
+        return(
+            <ul>
+                {this.props.data.map((item, index) => <li className="item" key={index}>
+                <p className="itemContent">{item}</p>
+                <p><input type="checkbox" className="checkDone"/></p>
+                <p className="itemDelete" onClick={(e) => this.props.handleDeletion(e)}><svg className="del"><use xlinkHref={`${Icons}#icon-trash-o`}></use></svg></p></li>)}
+            </ul>
+            );
+    }
 };
 
 export default Li;
