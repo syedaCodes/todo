@@ -11,36 +11,39 @@ class List extends React.Component {
             inputState: '',
             data: []
         }; 
-        this.onInputChange = this.onInputChange.bind(this);
-        this.handleDeletion = this.handleDeletion.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
-    onInputChange(event){
+    handleInputChange(event){
         event.preventDefault();
+        const text = event.target.elements.inputField.value.trim();
         
-        if(this.state.inputState){
-            this.setState(state => {
-                const data = state.data.concat(this.state.inputState);
+        if(this.state.data.indexOf(text)> -1){
+            alert('This to-do already exists'); 
+            event.target.elements.inputField.value = "";
+        }
+        else if(!text){
+            alert('Please enter a valid value');
+        }
+        else{
+            this.setState((state) => {
                 return {
-                    data,
-                    inputState: '',
+                    data: state.data.concat(text),
                     addClicked: true,
                 };
             });
         }
-        else{
-            alert("Please enter a valid value.");
-        }
     }
 
-    handleDeletion(e){
+    handleDelete(e){
         e.preventDefault();
-        this.setState(state => {
-            return{
-                data: []
-            };
-        })
-        console.log((this.props.data));
+        e.stopPropagation();
+        const ele = e.target.parentNode.id;
+        this.setState((state) => ({
+                data: state.data.filter(item =>  ele !==item)
+            })
+        );
     }
 
     render(){
@@ -54,13 +57,13 @@ class List extends React.Component {
                 }}>
                     <svg className="plusBtn"><use xlinkHref={`${Icons}#icon-plus`}></use></svg>
                 </button> :
-                <form className="replaceDiv" onSubmit={e => this.onInputChange(e)}>
-                    <input type="text" className="toDoField" autoComplete="off" name="item" value={this.state.inputState} onChange={(e) => this.setState({inputState: e.target.value})}/>
+                <form className="replaceDiv" onSubmit={this.handleInputChange}>
+                    <input type="text" className="toDoField" autoComplete="off" name="inputField"/>
                     <button className="checkDiv">
                         <svg className="saveBtn"><use xlinkHref={`${Icons}#icon-check`}></use></svg>
                     </button>
                 </form>}
-                {(this.state.data)? <Li data={this.state.data} handleDeletion={this.handleDeletion}></Li>: null}
+                {(this.state.data)? <Li data={this.state.data} handleDelete={this.handleDelete}></Li>: null}
             </div>
         );
     }
