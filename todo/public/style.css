@@ -1,9 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
-:root{
-    --color-primary: #333333;
-    --color-secondary: #292929;
-    --color-tertiary: green;
-}
 *,
 *::before,
 *::after{
@@ -15,7 +10,7 @@ html{
     font-size: 62.5%;
 }
 body{
-    background-color: var(--color-primary);
+    background-color: #333333;
     color: #fff;
     font-size: 1.4rem;
     font-family: 'Poppins', sans-serif;
@@ -32,55 +27,61 @@ h1{
     text-align: center;
     padding: 1rem;
 }
-.list{
-    background-color: var(--color-secondary);
-    border-radius: 5px;
-    width: 50%;
-    height: 80%;
-    margin: 0 auto;
+.container{
     padding: 1rem;
+}
+main, .container{
+    width: 100%;
+    height: 100%;
+}
+.list, .btnsList{
+    width: 60%;
+    height: 80%;
+    margin: .5rem auto;
+    border-radius: 5px;
+    padding: 1rem;
+}
+.list{
+    background-color: #292929;
 }
 .list li{
     list-style: none;
 }
+.btnsList{
+    text-align: right;
+}
 .item{
     display: block;
     padding: 1rem;
-    background-color: var(--color-primary);
+    background-color: #333333;
     margin: .7rem 0;
     border-radius: 5px;
 }
 .item p{
     display: inline-block;
 }
-.item p:not(:first-child){
-    text-align: right;
-}
-.checkInput, .itemContent, .del, .checkDone, .plusBtn{
+.checkInput, .itemContent, .del, .plusSvg{
     vertical-align: middle;
 }
-.checkInput, .itemDelete, .plusDiv, .checkDiv{
+.checkInput,
+.itemDelete,
+.plusBtn,
+.checkBtn,
+.reset,
+.pick{
     cursor: pointer;
 }
 .itemContent{
-    width: 80%;
+    width: 90%;
     text-align: justify;
     padding: 1rem;
-}
-.checkDone{
-    width: 2rem;
-    height: 2rem;
-    margin: 0 1rem;
-    cursor: pointer;
-}
-
-li.item input[type=checkbox]:checked{
-    background: var(--color-tertiary);
+    overflow-wrap: break-word;
 }
 .itemDelete{
     background-color: transparent;
     width: 2.2rem;
     height: 2.2rem;
+    margin: 0 1rem;
 }
 .del{
     width: 2rem;
@@ -89,68 +90,70 @@ li.item input[type=checkbox]:checked{
     margin: 0 .2rem;
     pointer-events: none;
 }
-/* Plus button*/
-.plusDiv, .checkDiv{
-    width: 4rem;
-    height: 4rem;
+.plusBtn, .checkBtn, .reset, .pick{
     display: inline-block;
-    background-color: var(--color-primary);
+    background-color: #333333;
     border-radius: 5px;
     box-shadow: -1px 2px 7px rgba(0,0,0, .5);
     text-align: center;
-    line-height: 2.8;
     border: none;
+}
+.reset, .pick{
+    color: #ffffff;
+    padding: 1rem;
+    margin: 0 .5rem;
+    transform: translateY(0);
+    transition: all .1s ease-in-out;
+}
+.plusBtn, .checkBtn{
+    width: 4rem;
+    height: 4rem;
+    line-height: 2.8;
 }
 .replaceDiv{
     width: 100%;
     height: 100%;
 }
-.checkDiv:focus, .checkDiv:active{
+.plusBtn:focus,
+.plusBtn:active,
+.checkBtn:focus,
+.checkBtn:active,
+.reset:focus,
+.pick:focus,
+.reset:active,
+.pick:active{
     outline: none;
 }
-/*
-.checkDone:checked{
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-*/
-.checkDiv{
+.checkBtn{
     margin: 0 1rem;
-}
-.checkDiv{
     width: 10%;
 }
-.plusBtn, .saveBtn{
+.plusSvg, .saveSvg{
     width: 3rem;
     height: 3rem;
     vertical-align: middle;
-}
-.plusBtn{
-    fill: #000000;
-}
-.checkBtn{
-    fill: #f76b2a;
 }
 .toDoField{
     width: 85%;
     padding: 1rem;
 }
 .toDoField:focus{
-    outline: 1px solid var(--color-primary);
+    outline: 1px solid #333333;
 }
-
+.pick:active, .reset:active{
+    transform: translateY(3px);
+}
 @media only screen and (max-width: 37.5em){
     .toDoField{
         width: 75%;
     }
-    .checkDiv{
+    .checkBtn{
         width: 15%;
     }
-    .list{
+    .list, .btnsList{
         width: 80%;
     }
     .itemContent{
-        width: 70%;
+        width: 84%;
     }
 }
