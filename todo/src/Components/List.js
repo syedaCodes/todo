@@ -15,6 +15,7 @@ class List extends React.Component {
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.pickTask = this.pickTask.bind(this);
         this.reset = this.reset.bind(this);
     }
 
@@ -83,6 +84,22 @@ class List extends React.Component {
         );
     }
 
+    pickTask(e){
+        e.preventDefault();
+        let n = 0;
+        const len = this.state.data.length;
+
+        if(!len){
+            alert('Please add tasks to do');
+        }
+        else if(len > 0){
+            n = Math.floor(Math.random()* len);
+            console.log(this.state.data[n]);
+        }
+        else{
+            console.log(this.state.data[0]);
+        }
+    }
     reset(e){
         e.preventDefault();
         this.setState({ data: [], addClicked: true });
@@ -92,7 +109,7 @@ class List extends React.Component {
 
         return(
             <main>
-                <CallToAction reset={this.reset}/>
+                <CallToAction pickTask={this.pickTask} reset={this.reset}/>
                 <div className="list">
                 {this.state.addClicked ?
                 <button className="plusBtn" onClick={e => {
