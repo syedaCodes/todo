@@ -94,10 +94,10 @@ class List extends React.Component {
         }
         else if(len > 0){
             n = Math.floor(Math.random()* len);
-            console.log(this.state.data[n]);
+            alert(this.state.data[n]);
         }
         else{
-            console.log(this.state.data[0]);
+            alert(this.state.data[0]);
         }
     }
     reset(e){
