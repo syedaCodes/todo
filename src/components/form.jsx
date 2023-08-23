@@ -17,7 +17,6 @@ const Form = ({ onAddTasks }) => {
         };
 
         onAddTasks(addTask);
-        console.log(addTask);
 
         setDescription("");
         setPriority("medium");

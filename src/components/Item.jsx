@@ -9,7 +9,6 @@ const Item = ({ task, onDeleteTask }) => {
         <li>
             <input type="checkbox" id={task.description} />
             <label htmlFor={task.description}>
-                {console.log(icons.get(task.priority))}
                 <span className={task.taskStatus ? "task-completed" : ""}>
                     {task.description}
                 </span>
