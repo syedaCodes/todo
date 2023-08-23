@@ -18,16 +18,104 @@ body{
 	background-color: var(--color-quaternary);
 	font-size: 1.4rem;
 	font-family: 'Comfortaa', cursive;
+	max-height: 100vh;
+}
+header,
+.form,
+.wrapper,
+.wrapper .menu li,
+footer{
+	padding: 1rem;
 }
 header{
-	padding: 2rem;
 	background-color: var(--color-tertiary);
 	color: var(--color-primary);
+	text-align: center;
 }
 header h1{
 	font-family: 'Tilt Prism', cursive;
 	font-size: 5rem;
 }
+.form{
+	background-color: var(--color-secondary);
+	color: var(--color-quaternary);
+}
+.form-wrapper{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 90%;
+	margin: 0 auto;
+}
+.form-box{
+	margin-left: 1rem;
+}
+.form-box select, .form-box input, .form-box button{
+	border: none;
+	outline: none;
+	padding: 1rem;
+	margin: 0 1rem;
+	border-radius: 5rem;
+	color: var(--color-primary);
+}
+.form-box input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: var(--color-primary);
+	opacity: 1; /* Firefox */
+} 
+.form-box input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: var(--color-primary);
+}  
+.form-box input::-ms-input-placeholder { /* Microsoft Edge */
+	color: var(--color-primary);
+}
+.form-box select,
+.form-box input{
+	background-color: var(--color-quaternary);
+}
+.form-box select option{
+	background-color: transparent;
+}
+.form-box input{
+	width: 25rem;
+}
+.form-box button{
+	background-color: var(--color-quaternary);
+	color: var(--color-primary);
+	font-weight: 600;
+	text-transform: uppercase;
+	padding: 1rem 1.5rem;
+}
+.wrapper{
+	background-color: var(--color-primary);
+	color: var(--color-quaternary);
+	height: 50vh;
+}
+.wrapper .menu{
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+.wrapper .menu li{
+	list-style: none;
+	margin: .5rem;
+}
+.wrapper .menu li, button{
+	cursor: pointer;
+}
+.wrapper .menu li input{
+	margin-right: .7rem;
+}
+.wrapper .menu li button{
+	border: none;
+	background-color: transparent;
+	margin-left: .7rem;
+}
+.wrapper .menu li span.task-completed{
+	text-decoration: line-through;
+}
 footer{
-	padding: 2rem;
+	color: var(--color-primary);
+	font-weight: 600;
+	text-align: center;
 }
