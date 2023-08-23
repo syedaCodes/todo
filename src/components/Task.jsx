@@ -1,4 +1,4 @@
-const Item = ({ task, onDeleteTask }) => {
+const Task = ({ task, onDeleteTask }) => {
     const icons = new Map([
         ["high", `\u{1F534}`],
         ["medium", `\u{1F7E1}`],
@@ -19,4 +19,4 @@ const Item = ({ task, onDeleteTask }) => {
     );
 };
 
-export default Item;
+export default Task;

@@ -1,11 +1,15 @@
-import Item from "./item";
+import Task from "./Task";
 
 const ToDoList = ({ tasks, onDeleteTask }) => {
     return (
         <div className="wrapper">
             <ul className="menu">
-                {tasks?.map((e) => (
-                    <Item key={e.id} task={e} onDeleteTask={onDeleteTask} />
+                {tasks?.map((task) => (
+                    <Task
+                        key={task.id}
+                        task={task}
+                        onDeleteTask={onDeleteTask}
+                    />
                 ))}
             </ul>
         </div>
