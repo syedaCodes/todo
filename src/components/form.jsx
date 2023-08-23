@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-const Form = () => {
+const Form = ({ onAddTasks }) => {
     const [description, setDescription] = useState("");
-    const [priority, setPriority] = useState("");
+    const [priority, setPriority] = useState("medium");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -12,14 +12,15 @@ const Form = () => {
         const addTask = {
             description,
             priority,
-            taskStatus: "medium",
+            taskStatus: false,
             id: Date.now(),
         };
 
+        onAddTasks(addTask);
         console.log(addTask);
 
         setDescription("");
-        setPriority("");
+        setPriority("medium");
     };
 
     return (

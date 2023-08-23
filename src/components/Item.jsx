@@ -1,13 +1,21 @@
-const Item = ({ description, priority, status }) => {
+const Item = ({ task, onDeleteTask }) => {
+    const icons = new Map([
+        ["high", `\u{1F534}`],
+        ["medium", `\u{1F7E1}`],
+        ["low", `\u{1F7E2}`],
+    ]);
+
     return (
         <li>
-            <input type="checkbox" id={description} />
-            <label htmlFor={description}>
-                <span className={status ? "task-completed" : {}}>
-                    {priority} {description}
+            <input type="checkbox" id={task.description} />
+            <label htmlFor={task.description}>
+                {console.log(icons.get(task.priority))}
+                <span className={task.taskStatus ? "task-completed" : ""}>
+                    {task.description}
                 </span>
+                <span title="priority">{icons.get(task.priority)}</span>
             </label>
-            <button>❌</button>
+            <button onClick={() => onDeleteTask(task.id)}>❌</button>
         </li>
     );
 };
