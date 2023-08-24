@@ -17,8 +17,8 @@ const Task = ({ task, onDeleteTask, onToggleTask }) => {
                 <span className={task.taskStatus ? "task-completed" : ""}>
                     {task.description}
                 </span>
-                <span title="priority">{icons.get(task.priority)}</span>
             </label>
+            <span title="priority">{icons.get(task.priority)}</span>
             <button onClick={() => onDeleteTask(task.id)}>❌</button>
         </li>
     );

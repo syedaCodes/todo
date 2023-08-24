@@ -28,8 +28,7 @@ body{
 header,
 .form,
 .wrapper,
-.wrapper .menu li,
-footer{
+.wrapper .menu li{
 	padding: 1rem;
 }
 header{
@@ -55,7 +54,7 @@ header h1{
 .form-box{
 	margin-left: 1rem;
 }
-.form-box select, .form-box input, .form-box button{
+.form-box select, .actions select, .form-box input, .form-box button{
 	border: none;
 	outline: none;
 	padding: 1rem;
@@ -71,12 +70,10 @@ header h1{
 .form-box input::-ms-input-placeholder { /* Microsoft Edge */
 	color: var(--color-primary);
 }
+.actions select,
 .form-box select,
 .form-box input{
 	background-color: var(--color-quaternary);
-}
-.form-box select option{
-	background-color: transparent;
 }
 .form-box input{
 	width: 25rem;
@@ -91,17 +88,30 @@ header h1{
 .wrapper{
 	background-color: var(--color-primary);
 	color: var(--color-quaternary);
-	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	/* flex-grow: 1; */
+	height: 100%;
+	justify-content: space-between;
 }
 .wrapper .menu{
 	width: 80%;
 	margin: 0 auto;
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+.wrapper .actions{
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	padding: 1.5rem 1rem;
 }
 .wrapper .menu li{
 	list-style: none;
 	margin: .5rem;
+	min-width: 30%;
 }
 .wrapper .menu li,
 .wrapper .menu li label,
@@ -109,7 +119,7 @@ button{
 	cursor: pointer;
 }
 .wrapper .menu li input{
-	margin-right: .7rem;
+	margin-right: 1.5rem;
 }
 .wrapper .menu li button{
 	border: none;
@@ -120,14 +130,15 @@ button{
 	display: flex;
 	align-items: center;
 }
-.wrapper .menu li label span:last-child{
+.wrapper .menu li label + span{
 	margin-left: .5rem;
 	font-size: 1.2rem;
 }
-.wrapper .menu li label span:first-child.task-completed{
+.wrapper .menu li label span.task-completed{
 	text-decoration: line-through;
 }
 footer{
+	padding: 2rem 1rem;
 	color: var(--color-primary);
 	font-weight: 600;
 	text-align: center;
