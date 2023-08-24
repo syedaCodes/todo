@@ -20,6 +20,11 @@ body{
 	font-family: 'Comfortaa', cursive;
 	max-height: 100vh;
 }
+#root{
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
 header,
 .form,
 .wrapper,
@@ -59,12 +64,10 @@ header h1{
 	color: var(--color-primary);
 }
 .form-box input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-	color: var(--color-primary);
 	opacity: 1; /* Firefox */
 } 
-.form-box input:-ms-input-placeholder { /* Internet Explorer 10-11 */
-	color: var(--color-primary);
-}  
+.form-box input::placeholder,
+.form-box input:-ms-input-placeholder, /* Internet Explorer 10-11 */ 
 .form-box input::-ms-input-placeholder { /* Microsoft Edge */
 	color: var(--color-primary);
 }
@@ -88,10 +91,10 @@ header h1{
 .wrapper{
 	background-color: var(--color-primary);
 	color: var(--color-quaternary);
-	height: 50vh;
+	flex-grow: 1;
 }
 .wrapper .menu{
-	width: 90%;
+	width: 80%;
 	margin: 0 auto;
 	display: flex;
 	flex-wrap: wrap;
@@ -100,7 +103,9 @@ header h1{
 	list-style: none;
 	margin: .5rem;
 }
-.wrapper .menu li, button{
+.wrapper .menu li,
+.wrapper .menu li label,
+button{
 	cursor: pointer;
 }
 .wrapper .menu li input{

@@ -1,14 +1,15 @@
 import Task from "./Task";
 
-const ToDoList = ({ tasks, onDeleteTask }) => {
+const ToDoList = ({ tasks, onDeleteTask, onToggleTask }) => {
     return (
         <div className="wrapper">
             <ul className="menu">
                 {tasks?.map((task) => (
                     <Task
-                        key={task.id}
                         task={task}
                         onDeleteTask={onDeleteTask}
+                        onToggleTask={onToggleTask}
+                        key={task.id}
                     />
                 ))}
             </ul>

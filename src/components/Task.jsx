@@ -1,4 +1,4 @@
-const Task = ({ task, onDeleteTask }) => {
+const Task = ({ task, onDeleteTask, onToggleTask }) => {
     const icons = new Map([
         ["high", `\u{1F534}`],
         ["medium", `\u{1F7E1}`],
@@ -7,7 +7,12 @@ const Task = ({ task, onDeleteTask }) => {
 
     return (
         <li>
-            <input type="checkbox" id={task.description} />
+            <input
+                type="checkbox"
+                id={task.description}
+                checked={task.taskStatus}
+                onChange={() => onToggleTask(task.id)}
+            />
             <label htmlFor={task.description}>
                 <span className={task.taskStatus ? "task-completed" : ""}>
                     {task.description}

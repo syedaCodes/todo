@@ -15,12 +15,26 @@ function App() {
         setTasks((tasks) => tasks.filter((task) => task.id !== id));
     };
 
+    const handleToggleTask = (id) => {
+        setTasks((tasks) =>
+            tasks.map((task) =>
+                task.id === id
+                    ? { ...task, taskStatus: !task.taskStatus }
+                    : task
+            )
+        );
+    };
+
     return (
         <>
             <Header />
             <Form onAddTasks={handleAddTasks} />
-            <ToDoList tasks={tasks} onDeleteTask={handleDeleteTask} />
-            <Footer />
+            <ToDoList
+                tasks={tasks}
+                onDeleteTask={handleDeleteTask}
+                onToggleTask={handleToggleTask}
+            />
+            <Footer tasks={tasks} />
         </>
     );
 }
