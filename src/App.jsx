@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Header from "./components/header";
+import Header from "./components/Header";
 import Form from "./components/Form";
-import ToDoList from "./components/toDoList";
+import ToDoList from "./components/ToDoList";
 import Footer from "./components/Footer";
 
 function App() {
