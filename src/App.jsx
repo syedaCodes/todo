@@ -25,6 +25,10 @@ function App() {
         );
     };
 
+    const handleClearList = () => {
+        setTasks([]);
+    };
+
     return (
         <>
             <Header />
@@ -33,6 +37,7 @@ function App() {
                 tasks={tasks}
                 onDeleteTask={handleDeleteTask}
                 onToggleTask={handleToggleTask}
+                onClearList={handleClearList}
             />
             <Footer tasks={tasks} />
         </>

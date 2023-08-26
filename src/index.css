@@ -54,7 +54,7 @@ header h1{
 .form-box{
 	margin-left: 1rem;
 }
-.form-box select, .actions select, .form-box input, .form-box button{
+.form-box select, .actions select, .form-box input, .form-box button, .actions button{
 	border: none;
 	outline: none;
 	padding: 1rem;
@@ -80,10 +80,15 @@ header h1{
 }
 .form-box button{
 	background-color: var(--color-quaternary);
-	color: var(--color-primary);
-	font-weight: 600;
 	text-transform: uppercase;
+}
+.form-box button,
+.actions button{
+	font-weight: 600;
 	padding: 1rem 1.5rem;
+}
+.actions button{
+	background-color: var(--color-quaternary);
 }
 .wrapper{
 	background-color: var(--color-primary);
@@ -115,7 +120,8 @@ header h1{
 }
 .wrapper .menu li,
 .wrapper .menu li label,
-button{
+button,
+select{
 	cursor: pointer;
 }
 .wrapper .menu li input{

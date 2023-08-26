@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Task from "./Task";
 
-const ToDoList = ({ tasks, onDeleteTask, onToggleTask }) => {
+const ToDoList = ({ tasks, onDeleteTask, onToggleTask, onClearList }) => {
     const [sortBy, setSortBy] = useState("default");
 
     let sortedTasks;
@@ -47,6 +47,7 @@ const ToDoList = ({ tasks, onDeleteTask, onToggleTask }) => {
                     <option value="priority">Sort by priority</option>
                     <option value="status">Sort by status</option>
                 </select>
+                <button onClick={onClearList}>Clear List</button>
             </div>
         </div>
     );
